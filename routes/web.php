@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(GuestController::class)->group( function () {
+    Route::get('/', 'top');
+    Route::get('/about', 'about');
+    Route::get('/product', 'works');
+    Route::get('/contact', 'contact');
 });
 
 Route::get('/dashboard', function () {
