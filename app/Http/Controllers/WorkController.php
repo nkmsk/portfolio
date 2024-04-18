@@ -91,12 +91,7 @@ class WorkController extends Controller
                 $work->work_images()->update([
                     'image_path' => $imagePath
                 ]);
-            } elseif ($request->file('image') == null) {
-                $work->work_images()->update([
-                    'image_path' => null
-                ]);
             }
-
         
             DB::commit();
             
