@@ -32,11 +32,13 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
 
+        // 画像がアップロードされる場合
         if ($request->hasFile('image')) {
             $imageFile = $request->file('image');
             $imageData = 'data:' . $imageFile->getClientMimeType() . ';base64,' . base64_encode(file_get_contents($imageFile));
             $request->user()->image = $imageData;
 
+        // 既存の画像の場合
         } elseif ($request->filled('image')) {
             $request->user()->image = $request->image;
 

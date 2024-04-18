@@ -23,6 +23,7 @@
             <x-input-label for="file_input" :value="'プロフィール画像'" />
             <input id="file_input" name="image" type="file" class="hidden" accept="image/*" />
             <div class="mt-2 flex items-center gap-x-3">
+                {{-- 画像無い場合 --}}
                 @if ($user->image == null)
                     <svg id="image-preview" class="h-20 w-20 rounded-full text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd"
@@ -182,6 +183,7 @@
 
         // 削除ボタンでデフォルト画像を表示
         $("#delete-button").click(function() {
+            $("input[name='image']").val("");
             let base64DataUrl = "";
             preview.empty();
             preview.css("background-image", "");
