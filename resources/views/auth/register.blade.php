@@ -18,7 +18,7 @@
             </div>
         @endif
 
-        <div class="border-b border-gray-900/10 pb-12">
+        <div class="border-b border-gray-900/10 pb-8">
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
                 <!-- last_name -->

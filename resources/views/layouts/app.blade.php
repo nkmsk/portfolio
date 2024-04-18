@@ -23,7 +23,7 @@
     <body class="font-sans antialiased">
         <div class="h-screen flex bg-gray-100 dark:bg-gray-900">
             
-            <div class=" inset-y-0 left-0 w-64 bg-white dark:bg-gray-800 shadow">
+            <div class="hidden md:block inset-y-0 left-0 w-64 bg-white dark:bg-gray-800 shadow">
                 @include('layouts.sidebar')
             </div>
 
@@ -31,6 +31,26 @@
 
                 <!-- Page Content -->
                 <main class="overflow-auto">
+
+                    
+                    {{-- モバイルメニューボタン --}}
+                    <div class="pt-4 pr-4 absolute bottom-4 right-4 sm:hidden">
+                        <div class="drawer text-right">
+                            <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+                            <div class="drawer-content">
+                                <!-- Page content here -->    
+                                <label for="my-drawer" class="inline-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-12 h-12 bg-white rounded-full p-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                    </svg>
+                                </label>
+                            </div> 
+                            <div class="drawer-side z-50">
+                                <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                                @include('layouts.sidebar')
+                            </div>
+                        </div>
+                    </div>
                     {{ $slot }}
                 </main>
             </div>

@@ -19,7 +19,7 @@
         <main>
 
             @if(Auth::check())
-                <div class="fixed flex p-2 w-screen bg-gray-900 text-white text-xs space-x-4">
+                <div class="fixed flex p-2 w-screen bg-gray-900 text-white text-xs space-x-4 z-50">
                     <a href="{{ route('dashboard') }}">
                         <div class="flex items-center hover:text-blue-500">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
