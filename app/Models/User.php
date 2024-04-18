@@ -18,8 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
+        'image',
+        'phone_number',
+        'postal_code',
+        'region',
+        'locality',
         'password',
     ];
 
@@ -42,4 +48,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function social()
+    {
+        return $this->hasOne(Social::class);
+    }
+
+    public function works()
+    {
+        return $this->hasMany(Work::class);
+    }
 }
