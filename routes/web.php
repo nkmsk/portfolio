@@ -4,6 +4,8 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\WorkController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +52,19 @@ Route::middleware('auth')->group(function () {
         Route::get('/works/{id}/edit', 'edit')->name('works.edit');
         Route::patch('/works/{id}', 'update')->name('works.update');
         Route::delete('/works/{id}', 'destroy')->name('works.destroy');
+    });
+    Route::controller(AboutController::class)->group( function () {
+        Route::get('/about/setting', 'edit')->name('about.edit');
+        Route::patch('/about/setting', 'update')->name('about.update');
+    });
+
+    Route::controller(SkillController::class)->group( function () {
+        Route::get('/skills/index', 'index')->name('skills.index');
+        Route::get('/skills/create', 'create')->name('skills.create');
+        Route::post('/skills/store', 'store')->name('skills.store');
+        Route::get('/skills/{id}/edit', 'edit')->name('skills.edit');
+        Route::patch('/skills/{id}', 'update')->name('skills.update');
+        Route::delete('/skills/{id}', 'destroy')->name('skills.destroy');
     });
 });
 

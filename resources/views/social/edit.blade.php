@@ -26,14 +26,14 @@
             {{-- instagram --}}
             <div>
               <x-input-label for="instagram" :value="'instagam'" />
-              <x-text-input id="instagram" name="instagram" type="text" class="mt-1 block w-full" :value="old('instagram', $user->social)" autofocus />
+              <x-text-input id="instagram" name="instagram" type="text" class="mt-1 block w-full" :value="old('instagram', $user?->social?->instagram)" autofocus />
               <x-input-error class="mt-2" :messages="$errors->get('instagram')" />
             </div>
             
             {{-- git_hub --}}
             <div>
               <x-input-label for="git_hub" :value="'git_hub'" />
-              <x-text-input id="git_hub" name="git_hub" type="text" class="mt-1 block w-full" :value="old('git_hub', $user->social)" autofocus />
+              <x-text-input id="git_hub" name="git_hub" type="text" class="mt-1 block w-full" :value="old('git_hub', $user?->social?->git_hub)" autofocus />
               <x-input-error class="mt-2" :messages="$errors->get('git_hub')" />
             </div>
   

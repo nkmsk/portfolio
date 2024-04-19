@@ -18,7 +18,11 @@ class GuestController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            $this->user = User::with('social', 'works')->first();
+            if(auth()->check()) {
+                $this->user = auth()->user()->load('social', 'works');
+            } else {
+                $this->user = User::with('social', 'works')->first();
+            }
             return $next($request);
         });
     }

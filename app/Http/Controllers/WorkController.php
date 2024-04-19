@@ -38,26 +38,20 @@ class WorkController extends Controller
     public function store(WorkUpdateRequest $request): RedirectResponse
     {
         try {
-            $works = $request->user()->works()->first();
-        
-            if ($works == null) {
-                $works = new Work();
-                $works->user_id = $request->user()->id;
-            }
-        
-            $works->fill($request->validated());
-            $works->save();
+
+            $work = new Work($request->validated());
+            $work->user_id = $request->user()->id;
+            $work->save();
         
             $image = $request->file('image');
             $imagePath = 'data:' . $image->getClientMimeType() . ';base64,' . base64_encode(file_get_contents($image));
 
-            $works->work_images()->create([
-                'work_id' => $works->id,
+            $work->work_images()->create([
+                'work_id' => $work->id,
                 'image_path' => $imagePath
             ]);
         
             DB::commit();
-            // TODO メッセージの表示
             return Redirect::route('works.index')->with('success', '作成が完了しました');
         } catch (\Exception $e) {
             DB::rollback();
@@ -81,9 +75,7 @@ class WorkController extends Controller
     {
         try {
             $work = Work::findOrFail($id);
-        
-            $work->fill($request->validated());
-            $work->save();
+            $work->update($request->validated());
 
             if ($request->file('image')) {
                 $image = $request->file('image');
