@@ -20,11 +20,15 @@ class ProfileUpdateRequest extends FormRequest
             'first_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'phone_number' => ['nullable'],
-            'image' => ['nullable', 'image', 'max:1024'],
             'postal_code' => ['nullable', 'string'],
             'region' => ['nullable', 'string'],
             'locality' => ['nullable', 'string'],
             'role' => ['required', 'integer', 'in:0,1'],
         ];
+
+        // 画像が選択された場合のみ
+        if ($this->file('image')) {
+        $rules['image'] = ['image', 'max:1024'];
+        }
     }
 }
