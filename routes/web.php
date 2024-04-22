@@ -6,6 +6,7 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\WorkHistoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,6 +66,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/skills/{id}/edit', 'edit')->name('skills.edit');
         Route::patch('/skills/{id}', 'update')->name('skills.update');
         Route::delete('/skills/{id}', 'destroy')->name('skills.destroy');
+    });
+
+    Route::controller(WorkHistoryController::class)->group( function () {
+        Route::get('/work_histories/index', 'index')->name('work_histories.index');
+        Route::get('/work_histories/create', 'create')->name('work_histories.create');
+        Route::post('/work_histories/store', 'store')->name('work_histories.store');
+        Route::get('/work_histories/{id}/edit', 'edit')->name('work_histories.edit');
+        Route::patch('/work_histories/{id}', 'update')->name('work_histories.update');
+        Route::delete('/work_histories/{id}', 'destroy')->name('work_histories.destroy');
     });
 });
 

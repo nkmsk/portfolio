@@ -102,7 +102,33 @@
             <h2 class="text-lg border-b-2">Work History</h2>
             <div class="p-6 text-sm leading-loose">
               <ul class="timeline timeline-snap-icon timeline-compact timeline-vertical">
-                <li>
+                @if ($user->work_histories->isNotEmpty())
+                  @foreach ($user->work_histories as $work_history)
+                    <li>
+                      <div class="timeline-middle">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.609a.75.75 0 00-1.214-.882l-3.563 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                      </div>
+                      <div class="timeline-end mb-10">
+                        <time class="font-mono italic">{{ $work_history->start_date }} - {{ $work_history->end_date }}</time>
+                        <div class="text-md font-black">{{ $work_history->name }}</div>
+                        <p>
+                          {!! nl2br(e($work_history->description)) !!}
+                        </p>
+                      </div>
+                      @if (!$loop->last)
+                        <hr/>
+                      @endif
+                    </li>
+                  @endforeach
+                @else
+                  {{ 'まだ登録がありません' }}
+                @endif
+
+
+
+
+
+                {{-- <li>
                   <div class="timeline-middle">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.609a.75.75 0 00-1.214-.882l-3.563 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
                   </div>
@@ -114,9 +140,10 @@
                     </p>
                   </div>
                   <hr/>
-                </li>
+                </li> --}}
+                
 
-                <li>
+                {{-- <li>
                   <hr />
                   <div class="timeline-middle">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.609a.75.75 0 00-1.214-.882l-3.563 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
@@ -141,7 +168,7 @@
                     経理として配属<br>
                     飲食店の店舗運営業務を兼任
                   </div>
-                </li>
+                </li> --}}
               </ul>
             </div>
           </div>

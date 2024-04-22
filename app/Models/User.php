@@ -27,6 +27,7 @@ class User extends Authenticatable
         'region',
         'locality',
         'password',
+        'role'
     ];
 
     /**
@@ -67,5 +68,10 @@ class User extends Authenticatable
     public function skills()
     {
         return $this->hasMany(Skill::class);
+    }
+
+    public function work_histories()
+    {
+        return $this->hasMany(WorkHistory::class);
     }
 }

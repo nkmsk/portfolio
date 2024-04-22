@@ -49,6 +49,15 @@
             <x-input-error class="mt-2" :messages="$errors->get('image')" />
         </div>
 
+        {{-- 管理者権限 --}}
+        @if (!$is_admin || $user->role === 1)
+            <div class="flex items-center">
+                <x-input-label for="role" :value="'管理者権限'" class="mr-6" />
+                <input type="hidden" name="role" value="0"> 
+                <input type="checkbox" name="role" value=1 class="checkbox checkbox-primary" {{ old('role') == 1 || $user->role == 1 ? 'checked' : '' }} />
+            </div>
+        @endif
+        
         {{-- 姓 --}}
         <div>
             <x-input-label for="last_name" :value="'姓'" />
@@ -96,7 +105,7 @@
         <div>
             <x-input-label for="phone_number" :value="'電話番号'" />
             <x-text-input id="phone_number" name="phone_number" type="tel" class="mt-1 block w-full" :value="old('phone_number', $user->phone_number)"
-                required autocomplete="tel" />
+                autocomplete="tel" />
             <x-input-error class="mt-2" :messages="$errors->get('phone_number')" />
         </div>
 
@@ -107,21 +116,21 @@
             <div>
                 <x-input-label for="postal_code" :value="'郵便番号'" />
                 <x-text-input id="postal_code" name="postal_code" type="text" minlength="7" maxlength="8" class="p-postal-code mt-1 block"
-                    :value="old('postal_code', $user->postal_code)" required autofocus autocomplete="shipping postal-code" /><span class="text-xs">※郵便番号を入力すると住所が自動補完されます</span>
+                    :value="old('postal_code', $user->postal_code)" autofocus autocomplete="shipping postal-code" /><span class="text-xs">※郵便番号を入力すると住所が自動補完されます</span>
                 <x-input-error class="mt-2" :messages="$errors->get('postal_code')" />
             </div>
 
             <div>
                 <x-input-label for="region" :value="__('都道府県')" />
                 <x-text-input id="region" name="region" type="text" class="p-region mt-1 block"
-                    :value="old('region', $user->region)" required />
+                    :value="old('region', $user->region)" />
                 <x-input-error class="mt-2" :messages="$errors->get('region')" />
             </div>
 
             <div>
                 <x-input-label for="locality" :value="__('市町村区')" />
                 <x-text-input id="locality" name="locality" type="text" class="p-locality mt-1 block"
-                    :value="old('locality', $user->locality)" required />
+                    :value="old('locality', $user->locality)" />
                 <x-input-error class="mt-2" :messages="$errors->get('locality')" />
             </div>
         </div>
@@ -168,8 +177,6 @@
                     preview.css("background-position", "center");
                 };
                 reader.readAsDataURL(file);
-
-
 
             } else {
 
