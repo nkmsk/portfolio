@@ -30,7 +30,7 @@
             <h1 class="text-lg border-b-2">About Me</h1>
             <div class="p-6">
               <p class="text-sm tracking-widest leading-loose">
-                {{ $user->about->about_me ?? "まだ登録がありません"}}
+                {!! nl2br(e($user->about->about_me ?? "まだ登録がありません")) !!}
               </p>
             </div>
           </div>
@@ -92,7 +92,7 @@
             <h2 class="text-lg border-b-2">PR</h2>
             <div class="p-6 text-sm leading-loose space-y-3">
               <p>
-                {{ $user->about->pr ?? "まだ登録がありません" }}
+                {!! nl2br(e($user->about->pr ?? "まだ登録がありません")) !!}
               </p>
             </div>
           </div>
