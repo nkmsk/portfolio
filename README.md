@@ -9,8 +9,8 @@
 <br>
 
 ## サイトURL
-ポートフォリオ：https://nkmsk-portfolio-05044119b5e6.herokuapp.com/    
-管理画面：https://nkmsk-portfolio-05044119b5e6.herokuapp.com/home  
+ポートフォリオ：https://nkmsk-portfolio-05044119b5e6.herokuapp.com/home    
+管理画面：https://nkmsk-portfolio-05044119b5e6.herokuapp.com/  
 
 <br>
 
