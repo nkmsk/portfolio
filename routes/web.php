@@ -39,8 +39,6 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::controller(ProfileController::class)->group( function () {
         Route::get('/profile', 'edit')->name('profile.edit');
-        Route::patch('/profile', 'update')->name('profile.update');
-        Route::delete('/profile', 'destroy')->name('profile.destroy');
     });
     Route::controller(SocialController::class)->group( function () {
         Route::get('/social', 'edit')->name('social.edit');
@@ -75,6 +73,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/work_histories/{id}/edit', 'edit')->name('work_histories.edit');
         Route::patch('/work_histories/{id}', 'update')->name('work_histories.update');
         Route::delete('/work_histories/{id}', 'destroy')->name('work_histories.destroy');
+    });
+});
+
+Route::middleware('auth', 'admin')->group(function () {
+    Route::controller(ProfileController::class)->group( function () {
+        Route::patch('/profile', 'update')->name('profile.update');
+        Route::delete('/profile', 'destroy')->name('profile.destroy');
     });
 });
 

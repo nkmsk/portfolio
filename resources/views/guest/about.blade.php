@@ -42,7 +42,7 @@
               <dl>
                 <dt class="float-left mr-4 clear-left w-40">ADDRESS</dt>
                 <dd class="float-left ml-2 mb-4 text-sm">
-                  {{ $user->region ?? "" }} {{ $user->locality ?? "no address" }}
+                  {{ $user->region ?? "" }} {{ $user->locality ?? "未登録" }}
                 </dd>
                 <dt class="float-left mr-4 clear-left w-40">EMAIL</dt>
                 <dd class="float-left ml-2 mb-4 text-sm">
