@@ -7,8 +7,8 @@
 
   　　
 ## サイトURL
-https://nkmsk-portfolio-05044119b5e6.herokuapp.com/  
-
+ポートフォリオ：https://nkmsk-portfolio-05044119b5e6.herokuapp.com/home
+管理画面：https://nkmsk-portfolio-05044119b5e6.herokuapp.com/
   　　
 ## テストアカウント
 メールアドレス: admin@admin　　
