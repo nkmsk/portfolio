@@ -16,7 +16,7 @@
     }
   </style>
 
-  <div class="container flex items-center justify-center w-screen h-screen mx-auto">
+  <div class="container flex items-center justify-center w-screen h-screen mx-auto overflow-hidden>
 
     <h1 id="opening-animation" class="fade-in font-serif text-3xl lg:text-5xl text-gray-700 tracking-widest">{{ $user->last_name }} {{ $user->first_name }}</h1>
 
