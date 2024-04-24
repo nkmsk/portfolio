@@ -16,7 +16,7 @@
     </head>
     <body class="font-sans antialiased">
         <!-- Page Content -->
-        <main>
+        <main class="overflow-hidden">
 
             @if(Auth::check())
                 <div class="fixed flex p-2 w-screen bg-gray-900 text-white text-xs space-x-4 z-50">
