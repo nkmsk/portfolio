@@ -42,7 +42,7 @@
         <h2 class="text-lg border-b-2">説明</h2>
         <div class="p-2 lg:p-6">
           <p class="text-sm tracking-widest leading-loose">
-            {!! nl2br(e($$work->description)) !!}
+            {!! nl2br(e($work->description)) !!}
           </p>
         </div>
       </div>
