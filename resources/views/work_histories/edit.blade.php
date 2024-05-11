@@ -6,7 +6,7 @@
                   <section>
                       <header>
                           <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                              {{ 'Work Historyの新規作成' }}
+                              {{ 'Work Historyの編集' }}
                           </h2>
                   
                           <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">

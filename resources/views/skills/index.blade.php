@@ -22,7 +22,7 @@
       <div class="p-4 mt-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
         <header>
           <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            MySkill一覧
+            MySkills一覧
           </h2>
         </header>
 
